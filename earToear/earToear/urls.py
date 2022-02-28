@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from earToear import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('earToear/', views.joke_list),
     path('earToear/<int:id>', views.joke_detail)
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
